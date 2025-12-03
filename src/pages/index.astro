@@ -4,153 +4,229 @@ import Layout from '../layouts/BarringtonLayout.astro';
 
 <Layout title="Mobile Tire Service Barrington, IL | We Come To You | Barrington Mobile Tire Pros">
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-slate-900 to-blue-900 text-white py-20 md:py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-4 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-                We Bring The Tire Shop To You<br>in <span class="text-barrington-accent">Barrington, IL</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-200 mb-10 max-w-2xl mx-auto">
-                Skip the waiting room. New tires and flat repairs at your home or office.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/new-tires-installed" class="inline-block bg-barrington-accent hover:bg-barrington-accent-hover text-white font-bold py-4 px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                    Shop New Tires
-                </a>
-                <a href="tel:8475558473" class="inline-block bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white text-white font-bold py-4 px-8 rounded-lg transition-all duration-300">
-                    Call (847) 555-8473
-                </a>
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden bg-brand-dark">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/40 z-10"></div>
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Luxury Car Tire Service" class="w-full h-full object-cover opacity-60" />
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-20 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+                    <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                    <span class="text-accent text-sm font-medium tracking-wide uppercase">Serving Barrington & Surroundings</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-8">
+                    Crafting the Ultimate <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-light">Tire Experience.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed font-light">
+                    We unify convenience, expertise, and premium service into one seamless plan. No waiting rooms, no delays, just precision mobile service at your doorstep.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="/new-tires-installed" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-brand-dark transition-all duration-200 bg-accent rounded-full hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1">
+                        Shop New Tires
+                    </a>
+                    <a href="tel:8475558473" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-white/10 border border-white/20 rounded-full hover:bg-white/20 backdrop-blur-sm">
+                        Call (847) 555-8473
+                    </a>
+                </div>
+
+                <!-- Audio Player Card -->
+                <div class="mt-16 p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md max-w-md">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                            <span class="material-symbols-outlined">play_circle</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-medium">Listen: How it works</p>
+                            <p class="text-slate-400 text-sm">60 seconds</p>
+                        </div>
+                    </div>
+                    <audio controls class="w-full h-8 opacity-80" style="filter: invert(1);">
+                        <source src="https://queensmobiletires.com/wp-content/uploads/2025/01/Queens-Mobile-Tire-Welcome-Message-Cassidy.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
             
-            <div class="mt-12 inline-block bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                <div class="flex items-center gap-3 text-sm font-medium text-slate-200">
-                    <span class="text-2xl">🔊</span>
-                    <span>Listen: How it works (60 seconds)</span>
+            <!-- Hero Visual/Floating Cards -->
+            <div class="hidden lg:block relative h-[600px]">
+                <div class="absolute top-10 right-0 w-80 p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-glass z-20 transform rotate-3 hover:rotate-0 transition-all duration-500">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-12 h-12 rounded-full bg-surface-light flex items-center justify-center text-2xl">🚗</div>
+                        <div>
+                            <h3 class="text-white font-bold">We Come To You</h3>
+                            <p class="text-slate-300 text-sm">Home or Office</p>
+                        </div>
+                    </div>
+                    <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div class="h-full bg-accent w-3/4"></div>
+                    </div>
                 </div>
-                <audio controls class="mt-3 h-8 w-full max-w-xs opacity-80">
-                    <source src="https://queensmobiletires.com/wp-content/uploads/2025/01/Queens-Mobile-Tire-Welcome-Message-Cassidy.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+
+                <div class="absolute bottom-20 left-10 w-72 p-6 bg-brand-dark/90 backdrop-blur-xl border border-white/10 rounded-3xl shadow-premium z-30 transform -rotate-2 hover:rotate-0 transition-all duration-500">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <p class="text-slate-400 text-xs uppercase tracking-wider">Rating</p>
+                            <p class="text-white font-bold text-2xl">5.0/5</p>
+                        </div>
+                        <div class="text-accent text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-slate-300 text-sm italic">"Saved my entire morning. Highly recommended!"</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Steps Section -->
-    <section class="py-20 bg-slate-50">
+    <!-- Stats/Trust Section -->
+    <section class="py-10 bg-surface-white border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-barrington-primary mb-4">How It Works</h2>
-                <p class="text-slate-600 text-lg">The easiest way to get back on the road.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Replace with actual brand logos if available, using text for now -->
+                <span class="text-2xl font-display font-bold text-slate-400">MICHELIN</span>
+                <span class="text-2xl font-display font-bold text-slate-400">GOODYEAR</span>
+                <span class="text-2xl font-display font-bold text-slate-400">CONTINENTAL</span>
+                <span class="text-2xl font-display font-bold text-slate-400">BRIDGESTONE</span>
             </div>
+        </div>
+    </section>
+
+    <!-- How It Works (Bento Grid Style) -->
+    <section class="py-24 bg-surface-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-20">
+                <span class="text-accent font-bold tracking-wider uppercase text-sm">Process</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold text-brand-dark mt-3 mb-6">Modern homeowners demand <br>more than a tire shop.</h2>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto">They expect precision, transparency, and results. Barrington Mobile Tire Pros delivers.</p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div class="w-12 h-12 bg-barrington-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">1</div>
-                    <div class="text-5xl mb-6">💻</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Browse & Order Online</h3>
-                    <p class="text-slate-600">Select your vehicle and choose from top brands like Michelin, Goodyear, and Continental.</p>
+                <!-- Step 1 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-brand-dark text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform duration-300">1</div>
+                    <h3 class="text-2xl font-display font-bold text-brand-dark mb-4">Browse & Order</h3>
+                    <p class="text-slate-600 leading-relaxed">Select your vehicle and choose from top brands. Our system ensures the perfect fit every time.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div class="w-12 h-12 bg-barrington-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">2</div>
-                    <div class="text-5xl mb-6">📅</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Select Installation Date</h3>
-                    <p class="text-slate-600">Pick a time and location in Barrington that works for you. Home, work, or gym.</p>
+
+                <!-- Step 2 -->
+                <div class="bg-brand-dark p-10 rounded-3xl shadow-premium border border-slate-800 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 duration-500"></div>
+                    <div class="w-14 h-14 bg-accent text-brand-dark rounded-2xl flex items-center justify-center text-2xl font-bold mb-8 relative z-10">2</div>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4 relative z-10">Select Date</h3>
+                    <p class="text-slate-300 leading-relaxed relative z-10">Pick a time and location in Barrington that works for you. Home, work, or gym.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow text-center group">
-                    <div class="w-12 h-12 bg-barrington-primary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6 group-hover:scale-110 transition-transform">3</div>
-                    <div class="text-5xl mb-6">🚗</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Enjoy Safer Driving</h3>
-                    <p class="text-slate-600">Our expert technicians arrive, mount, balance, and install your tires in about an hour.</p>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-slate-100 hover:shadow-premium transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-brand-dark text-white rounded-2xl flex items-center justify-center text-2xl font-bold mb-8 group-hover:scale-110 transition-transform duration-300">3</div>
+                    <h3 class="text-2xl font-display font-bold text-brand-dark mb-4">We Install</h3>
+                    <p class="text-slate-600 leading-relaxed">Our expert technicians arrive, mount, balance, and install your tires in about an hour.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tire Search Section -->
-    <section class="py-16 bg-white">
+    <!-- Tire Search Widget Section -->
+    <section class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-barrington-primary">Find New Tires</h2>
-            </div>
-            <div class="bg-slate-50 p-4 rounded-xl shadow-sm border border-slate-200">
-                <script is:inline src="https://app.tireconnect.ca/js/widget.js"></script>
-                <div id="tireconnect"></div>
-                <script is:inline>
-                TCWidget.init({
-                   apikey: 'dc18901bfdfcb8ba529d1eeb0c15c278',
-                   container: 'tireconnect'
-                });
-                </script>
+            <div class="bg-brand-dark rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden relative">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+                    <div class="absolute -top-24 -left-24 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="relative z-10 text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Find Your Perfect Tires</h2>
+                    <p class="text-slate-300">Use our advanced search to find the exact match for your vehicle.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg relative z-10">
+                    <script is:inline src="https://app.tireconnect.ca/js/widget.js"></script>
+                    <div id="tireconnect"></div>
+                    <script is:inline>
+                    TCWidget.init({
+                       apikey: 'dc18901bfdfcb8ba529d1eeb0c15c278',
+                       container: 'tireconnect'
+                    });
+                    </script>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-barrington-primary">Our Mobile Tire Services</h2>
+    <!-- Services Grid (Dark Mode) -->
+    <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <span class="text-accent font-bold tracking-wider uppercase text-sm">Services</span>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold mt-3">See build, budget, <br>and schedule.</h2>
+                </div>
+                <a href="/new-tires-installed" class="inline-flex items-center gap-2 text-white border-b border-accent pb-1 hover:text-accent transition-colors">
+                    View All Services <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1599409636242-758c954311b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Flat Tire Repair Barrington" class="w-full h-64 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-barrington-primary mb-3">Emergency Flat Repair</h3>
-                        <p class="text-slate-600 mb-6">Stuck on the side of the road? We provide 24/7 emergency flat tire repair in Barrington and surrounding areas.</p>
-                        <a href="/flat-tire-repair" class="text-barrington-accent font-bold hover:text-barrington-accent-hover inline-flex items-center">
-                            Learn More <span class="material-symbols-outlined ml-1">arrow_forward</span>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Service Card 1 -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1599409636242-758c954311b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Flat Tire Repair" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10 w-full">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-brand-dark mb-6 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-3">Emergency Flat Repair</h3>
+                        <p class="text-slate-300 mb-6 max-w-md opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-300">Stuck on the side of the road? We provide 24/7 emergency flat tire repair in Barrington and surrounding areas.</p>
+                        <a href="/flat-tire-repair" class="inline-block bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full hover:bg-white/20 transition-colors">
+                            Request Service
                         </a>
                     </div>
                 </div>
-                <div class="border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="New Tires Installed Barrington" class="w-full h-64 object-cover">
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-barrington-primary mb-3">New Tires Installed</h3>
-                        <p class="text-slate-600 mb-6">Competitive pricing on all major brands. Price includes mobile installation, balancing, and old tire disposal.</p>
-                        <a href="/new-tires-installed" class="text-barrington-accent font-bold hover:text-barrington-accent-hover inline-flex items-center">
-                            Shop Tires <span class="material-symbols-outlined ml-1">arrow_forward</span>
+
+                <!-- Service Card 2 -->
+                <div class="group relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[500px]">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="New Tires Installed" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-10 w-full">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-brand-dark mb-6 opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                            <span class="material-symbols-outlined">shopping_cart</span>
+                        </div>
+                        <h3 class="text-3xl font-display font-bold mb-3">New Tires Installed</h3>
+                        <p class="text-slate-300 mb-6 max-w-md opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-300">Competitive pricing on all major brands. Price includes mobile installation, balancing, and old tire disposal.</p>
+                        <a href="/new-tires-installed" class="inline-block bg-white/10 backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-full hover:bg-white/20 transition-colors">
+                            Shop Tires
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-20 bg-barrington-primary text-white">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold">Trusted by Barrington Drivers</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl">
-                    <div class="text-barrington-accent mb-4 text-xl">⭐⭐⭐⭐⭐</div>
-                    <p class="mb-6 italic opacity-90">"Saved my morning! I had a flat in my driveway and they were here in 45 minutes. Highly recommend Barrington Mobile Tire Pros."</p>
-                    <p class="font-bold">- Sarah J., Barrington Hills</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl">
-                    <div class="text-barrington-accent mb-4 text-xl">⭐⭐⭐⭐⭐</div>
-                    <p class="mb-6 italic opacity-90">"Ordered new Michelins online and they installed them while I was at work. So much better than waiting at a shop."</p>
-                    <p class="font-bold">- Mike T., Lake Barrington</p>
-                </div>
-                <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl">
-                    <div class="text-barrington-accent mb-4 text-xl">⭐⭐⭐⭐⭐</div>
-                    <p class="mb-6 italic opacity-90">"Professional, fast, and great prices. The technician was polite and explained everything. Will use again."</p>
-                    <p class="font-bold">- Emily R., South Barrington</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center"></div>
-        <div class="absolute inset-0 bg-black/70"></div>
-        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center text-white">
-            <h2 class="text-4xl font-bold mb-6">Ready for New Tires?</h2>
-            <p class="text-xl mb-10 text-slate-200">Get the best brands delivered and installed at your convenience.</p>
-            <a href="/new-tires-installed" class="inline-block bg-barrington-accent hover:bg-barrington-accent-hover text-white font-bold py-4 px-10 rounded-lg shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-lg">
-                Shop Tires Now
-            </a>
+    <section class="py-32 bg-surface-light relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-5xl md:text-6xl font-display font-bold text-brand-dark mb-8">Ready to build your luxury ride?</h2>
+            <p class="text-xl text-slate-600 mb-12 max-w-2xl mx-auto">Get the best brands delivered and installed at your convenience. Experience the future of tire service today.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="/new-tires-installed" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white transition-all duration-200 bg-brand-dark rounded-full hover:bg-brand-light shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    Shop Tires Now
+                </a>
+                <a href="tel:8475558473" class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-brand-dark transition-all duration-200 bg-white border border-slate-200 rounded-full hover:bg-slate-50 shadow-md hover:shadow-lg">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-30">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/20 rounded-full blur-3xl"></div>
         </div>
     </section>
 </Layout>
