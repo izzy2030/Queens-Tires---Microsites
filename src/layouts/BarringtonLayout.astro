@@ -36,5 +36,63 @@ const { title, description } = Astro.props;
 			</main>
 			<BarringtonFooter />
 		</div>
+
+        <script>
+            // Logic to hide chat widget when tire connect is visible
+            let chatWidgetContainer;
+
+            // Helper to find the widget
+            function findWidget() {
+                // Look for iframe with the specific src
+                const iframe = document.querySelector('iframe[src*="queensautoserviceselgin"]') || 
+                               document.querySelector('iframe[src*="leads.queensautoservices"]');
+                if (iframe) {
+                    // usually the widget is wrapped in a fixed div, or the iframe itself is fixed
+                    // We want the top-most fixed container
+                    let el = iframe;
+                    while (el && el.parentElement && el.parentElement !== document.body) {
+                        const style = window.getComputedStyle(el);
+                        if (style.position === 'fixed') {
+                            return el;
+                        }
+                        el = el.parentElement;
+                    }
+                    return iframe; // Fallback
+                }
+                return null;
+            }
+
+            // Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!chatWidgetContainer) chatWidgetContainer = findWidget();
+                    
+                    if (chatWidgetContainer) {
+                        if (entry.isIntersecting) {
+                            chatWidgetContainer.style.transition = 'opacity 0.3s, visibility 0.3s';
+                            chatWidgetContainer.style.opacity = '0';
+                            chatWidgetContainer.style.visibility = 'hidden';
+                            chatWidgetContainer.style.pointerEvents = 'none';
+                        } else {
+                            chatWidgetContainer.style.opacity = '1';
+                            chatWidgetContainer.style.visibility = 'visible';
+                            chatWidgetContainer.style.pointerEvents = 'auto';
+                        }
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of tire widget is visible
+
+            // Start observing
+            const tireConnect = document.getElementById('tireconnect');
+            if (tireConnect) {
+                // Observe the parent container for better hit testing
+                observer.observe(tireConnect.parentElement || tireConnect);
+            }
+            
+            // Also try to find widget periodically in case it loads late
+            setInterval(() => {
+                if (!chatWidgetContainer) chatWidgetContainer = findWidget();
+            }, 2000);
+        </script>
 	</body>
 </html>
