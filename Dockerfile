@@ -1,11 +1,13 @@
-# Use a lightweight Nginx image
+# Stage 1: Build the project
+FROM node:lts AS builder
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve the project
 FROM nginx:alpine
-
-# Copy the website files to the Nginx html directory
-COPY . /usr/share/nginx/html
-
-# Expose port 80
+COPY --from=builder /app/dist /usr/share/nginx/html
 EXPOSE 80
-
-# Start Nginx when the container starts
 CMD ["nginx", "-g", "daemon off;"]
