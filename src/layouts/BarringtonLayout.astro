@@ -25,7 +25,7 @@ const { title, description } = Astro.props;
         
         <!-- Chat Widget Embed Code -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/geist-font/1.0.0/fonts/geist-sans/style.min.css">
-        <script src="https://widget.queensautoserviceselgin.com/widget.js" defer></script>
+        <!-- Script moved to dynamic loader -->
         <!-- End Chat Widget Embed Code -->
 	</head>
 	<body class="font-sans bg-surface-light text-brand-dark antialiased selection:bg-accent selection:text-brand-dark">
@@ -37,27 +37,71 @@ const { title, description } = Astro.props;
 			<BarringtonFooter />
 		</div>
 
+        <!-- Custom Chat Trigger -->
+        <button id="custom-chat-trigger" class="fixed bottom-6 right-6 z-40 bg-brand-dark text-white px-6 py-3 rounded-full shadow-xl flex items-center gap-2 hover:bg-brand-light transition-all transform hover:-translate-y-1 group">
+            <span class="material-symbols-outlined group-hover:animate-bounce">chat</span>
+            <span class="font-bold">Live Chat</span>
+        </button>
+
         <script>
             // Logic to hide chat widget when tire connect is visible
             let chatWidgetContainer;
+            let widgetLoaded = false;
+            const customTrigger = document.getElementById('custom-chat-trigger');
 
-            // Helper to find the widget
+            // Load Widget Function
+            function loadWidget() {
+                if (widgetLoaded) return;
+                
+                const script = document.createElement('script');
+                script.src = "https://widget.queensautoserviceselgin.com/widget.js";
+                script.defer = true;
+                document.body.appendChild(script);
+                
+                widgetLoaded = true;
+                if (customTrigger) customTrigger.style.display = 'none';
+            }
+
+            // Bind click event
+            if (customTrigger) {
+                customTrigger.addEventListener('click', loadWidget);
+            }
+
+            // Helper to find the widget using heuristics
             function findWidget() {
-                // Look for iframe with the specific src
-                const iframe = document.querySelector('iframe[src*="queensautoserviceselgin"]') || 
-                               document.querySelector('iframe[src*="leads.queensautoservices"]');
-                if (iframe) {
-                    // usually the widget is wrapped in a fixed div, or the iframe itself is fixed
-                    // We want the top-most fixed container
-                    let el = iframe;
+                // 1. Try specific selectors first (if known)
+                const specific = document.querySelector('iframe[src*="queensautoserviceselgin"]') || 
+                                 document.querySelector('iframe[src*="leads.queensautoservices"]');
+                if (specific) {
+                    // Find the fixed parent
+                    let el = specific;
                     while (el && el.parentElement && el.parentElement !== document.body) {
                         const style = window.getComputedStyle(el);
-                        if (style.position === 'fixed') {
-                            return el;
-                        }
+                        if (style.position === 'fixed') return el;
                         el = el.parentElement;
                     }
-                    return iframe; // Fallback
+                    return specific;
+                }
+
+                // 2. Heuristic: Find fixed element in bottom-right with high z-index
+                const allElements = document.querySelectorAll('body > div, body > iframe, body > button');
+                for (let el of allElements) {
+                    // Skip our own elements
+                    if (el.id === 'barrington-mobile-menu' || el.id === 'main-header' || el.id === 'custom-chat-trigger') continue;
+
+                    const style = window.getComputedStyle(el);
+                    const bottom = parseInt(style.bottom);
+                    const right = parseInt(style.right);
+                    const zIndex = parseInt(style.zIndex);
+
+                    if (style.position === 'fixed' && 
+                        !isNaN(bottom) && bottom < 150 && 
+                        !isNaN(right) && right < 150 &&
+                        !isNaN(zIndex) && zIndex > 50 &&
+                        style.display !== 'none' &&
+                        style.visibility !== 'hidden') {
+                        return el;
+                    }
                 }
                 return null;
             }
@@ -65,34 +109,55 @@ const { title, description } = Astro.props;
             // Intersection Observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (!chatWidgetContainer) chatWidgetContainer = findWidget();
+                    // Always try to find/refresh the widget reference if loaded
+                    if (widgetLoaded && (!chatWidgetContainer || !document.body.contains(chatWidgetContainer))) {
+                        chatWidgetContainer = findWidget();
+                    }
                     
-                    if (chatWidgetContainer) {
-                        if (entry.isIntersecting) {
+                    if (entry.isIntersecting) {
+                        // Hide Custom Trigger
+                        if (customTrigger) {
+                            customTrigger.style.opacity = '0';
+                            customTrigger.style.pointerEvents = 'none';
+                        }
+                        // Hide Real Widget
+                        if (chatWidgetContainer) {
                             chatWidgetContainer.style.transition = 'opacity 0.3s, visibility 0.3s';
                             chatWidgetContainer.style.opacity = '0';
                             chatWidgetContainer.style.visibility = 'hidden';
                             chatWidgetContainer.style.pointerEvents = 'none';
-                        } else {
+                        }
+                    } else {
+                        // Show Custom Trigger (only if widget not loaded)
+                        if (customTrigger && !widgetLoaded) {
+                            customTrigger.style.opacity = '1';
+                            customTrigger.style.pointerEvents = 'auto';
+                        }
+                        // Show Real Widget (only if loaded)
+                        if (chatWidgetContainer) {
                             chatWidgetContainer.style.opacity = '1';
                             chatWidgetContainer.style.visibility = 'visible';
                             chatWidgetContainer.style.pointerEvents = 'auto';
                         }
                     }
                 });
-            }, { threshold: 0.1 }); // Trigger when 10% of tire widget is visible
+            }, { threshold: 0.05 });
 
             // Start observing
             const tireConnect = document.getElementById('tireconnect');
             if (tireConnect) {
-                // Observe the parent container for better hit testing
                 observer.observe(tireConnect.parentElement || tireConnect);
             }
             
-            // Also try to find widget periodically in case it loads late
+            // Periodically check for the widget if loaded
             setInterval(() => {
-                if (!chatWidgetContainer) chatWidgetContainer = findWidget();
-            }, 2000);
+                if (widgetLoaded) {
+                    const widget = findWidget();
+                    if (widget && widget !== chatWidgetContainer) {
+                        chatWidgetContainer = widget;
+                    }
+                }
+            }, 1000);
         </script>
 	</body>
 </html>
