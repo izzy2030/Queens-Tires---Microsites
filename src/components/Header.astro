@@ -1,0 +1,67 @@
+---
+---
+<header
+    class="p-4 bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-10 border-b border-slate-200 dark:border-zinc-800">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="/" class="text-xl font-bold text-slate-800 dark:text-slate-100">Queens<span
+                class="text-primary">Tires</span></a>
+        <button id="menu-btn"
+            class="flex items-center justify-center h-10 w-10 text-slate-600 dark:text-slate-300 z-50 relative">
+            <span id="menu-icon" class="material-symbols-outlined text-3xl">menu</span>
+        </button>
+    </div>
+</header>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu"
+    class="fixed inset-0 z-40 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-sm transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-center items-center">
+    <button id="close-menu-btn"
+        class="absolute top-6 right-4 p-2 text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+    <nav class="flex flex-col gap-8 text-center">
+        <a href="/mobile-tire-service-queens"
+            class="text-2xl font-bold text-slate-800 dark:text-slate-100 hover:text-primary transition-colors">Mobile
+            Service</a>
+        <a href="/flat-tire-repair-queens"
+            class="text-2xl font-bold text-slate-800 dark:text-slate-100 hover:text-primary transition-colors">Flat
+            Tire Repair</a>
+        <a href="/new-tires-installed-queens"
+            class="text-2xl font-bold text-slate-800 dark:text-slate-100 hover:text-primary transition-colors">New
+            Tires</a>
+        <a href="/24-hour-mobile-tire-shop-queens"
+            class="text-2xl font-bold text-slate-800 dark:text-slate-100 hover:text-primary transition-colors">24/7
+            Shop</a>
+    </nav>
+</div>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu?.classList.remove('translate-x-full');
+            if (menuIcon) menuIcon.textContent = 'close';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            mobileMenu?.classList.add('translate-x-full');
+            if (menuIcon) menuIcon.textContent = 'menu';
+            document.body.style.overflow = '';
+        }
+    }
+
+    menuBtn?.addEventListener('click', toggleMenu);
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    const menuLinks = mobileMenu?.querySelectorAll('a');
+    menuLinks?.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
+</script>
