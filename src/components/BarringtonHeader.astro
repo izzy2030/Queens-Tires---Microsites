@@ -1,6 +1,6 @@
 ---
 ---
-<header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-white/10 shadow-sm">
+<header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white border-b border-transparent">
     <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
         <a href="/" class="text-2xl font-display font-bold text-brand-dark tracking-tight">
             Barrington<span class="text-accent">MobileTires</span>
@@ -48,6 +48,7 @@
     const menuBtn = document.getElementById('barrington-menu-btn');
     const mobileMenu = document.getElementById('barrington-mobile-menu');
     const closeMenuBtn = document.getElementById('barrington-close-menu-btn');
+    const header = document.getElementById('main-header');
     let isMenuOpen = false;
 
     function toggleMenu() {
@@ -61,6 +62,20 @@
         }
     }
 
+    function updateHeader() {
+        if (window.scrollY > 10) {
+            header?.classList.remove('bg-white', 'border-transparent');
+            header?.classList.add('bg-white/80', 'backdrop-blur-md', 'shadow-sm', 'border-white/10');
+        } else {
+            header?.classList.add('bg-white', 'border-transparent');
+            header?.classList.remove('bg-white/80', 'backdrop-blur-md', 'shadow-sm', 'border-white/10');
+        }
+    }
+
     menuBtn?.addEventListener('click', toggleMenu);
     closeMenuBtn?.addEventListener('click', toggleMenu);
+    window.addEventListener('scroll', updateHeader);
+    
+    // Initial check
+    updateHeader();
 </script>
