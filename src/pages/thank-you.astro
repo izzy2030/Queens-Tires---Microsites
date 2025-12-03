@@ -3,12 +3,14 @@ import Layout from '../layouts/BarringtonLayout.astro';
 ---
 
 <Layout title="Thank You | Barrington Mobile Tire Pros">
-    <section class="py-32 text-center">
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 md:pt-40 md:pb-20 bg-surface-light">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-6xl mb-6">✅</div>
-            <h1 class="text-4xl font-bold text-barrington-primary mb-4">Thank You!</h1>
-            <p class="text-xl text-slate-600 mb-8">We have received your request. A technician will call you within <strong>15 minutes</strong> to confirm details.</p>
-            <a href="/" class="inline-block bg-barrington-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-barrington-primary-dark transition-colors">Return to Home</a>
+            <h1 class="text-5xl md:text-6xl font-display font-bold text-brand-dark mb-6 tracking-tight">Thank You!</h1>
+            <p class="text-xl md:text-2xl text-slate-500 max-w-3xl font-light leading-relaxed">We have received your request. A technician will call you within <strong>15 minutes</strong> to confirm details.</p>
+            <div class="mt-8">
+                <a href="/" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-brand-dark rounded-full hover:bg-brand-light hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1">Return to Home</a>
+            </div>
         </div>
     </section>
 </Layout>

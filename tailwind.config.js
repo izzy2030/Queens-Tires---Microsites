@@ -23,8 +23,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        display: ["Outfit", "Inter", "sans-serif"], // More modern display font
+        sans: ["Manrope", "sans-serif"],
+        display: ["Manrope", "sans-serif"], // Unified font for a clean look
       },
       borderRadius: {
         'xl': '1rem',

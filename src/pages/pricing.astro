@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/BarringtonLayout.astro';
+---
+
+<Layout title="Pricing | Barrington Mobile Tire Pros" description="Transparent pricing for tire installation, balancing, and repair services in Barrington, IL.">
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 md:pt-40 md:pb-20 bg-surface-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-5xl md:text-6xl font-display font-bold text-brand-dark mb-6 tracking-tight">Transparent <br class="hidden md:block" /> Pricing.</h1>
+            <p class="text-xl md:text-2xl text-slate-500 max-w-3xl font-light leading-relaxed">No hidden fees. No surprises. <br class="hidden md:block" /> Just honest, upfront costs.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Content -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Standard Package -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Standard Installation</h3>
+                    <div class="text-4xl font-bold text-brand-dark mb-4">$30<span class="text-lg text-slate-500 font-normal">/tire</span></div>
+                    <p class="text-slate-600 mb-6 text-sm">For most sedans and small SUVs (13"-18" wheels).</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> Mounting & Balancing
+                        </li>
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> New Rubber Valve Stems
+                        </li>
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> Old Tire Disposal
+                        </li>
+                    </ul>
+                    <a href="/contact" class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-bold text-brand-dark border border-slate-200 rounded-full hover:bg-slate-50 transition-colors">Get Started</a>
+                </div>
+
+                <!-- Performance Package -->
+                <div class="bg-brand-dark p-8 rounded-3xl border border-brand-dark shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Performance / Truck</h3>
+                    <div class="text-4xl font-bold text-white mb-4">$45<span class="text-lg text-slate-400 font-normal">/tire</span></div>
+                    <p class="text-slate-300 mb-6 text-sm">For low profile (35 series or less), run-flats, or large truck tires.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-300 text-sm">
+                            <span class="material-symbols-outlined text-accent mr-2 text-base">check</span> Specialized Mounting
+                        </li>
+                        <li class="flex items-center text-slate-300 text-sm">
+                            <span class="material-symbols-outlined text-accent mr-2 text-base">check</span> Precision Balancing
+                        </li>
+                        <li class="flex items-center text-slate-300 text-sm">
+                            <span class="material-symbols-outlined text-accent mr-2 text-base">check</span> TPMS Reset
+                        </li>
+                        <li class="flex items-center text-slate-300 text-sm">
+                            <span class="material-symbols-outlined text-accent mr-2 text-base">check</span> Old Tire Disposal
+                        </li>
+                    </ul>
+                    <a href="/contact" class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-bold text-brand-dark bg-white rounded-full hover:bg-slate-100 transition-colors">Get Started</a>
+                </div>
+
+                <!-- Flat Repair -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2">Flat Repair</h3>
+                    <div class="text-4xl font-bold text-brand-dark mb-4">$65<span class="text-lg text-slate-500 font-normal">/tire</span></div>
+                    <p class="text-slate-600 mb-6 text-sm">Professional patch/plug repair from the inside out.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> Leak Detection
+                        </li>
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> Dismount & Inspect
+                        </li>
+                        <li class="flex items-center text-slate-600 text-sm">
+                            <span class="material-symbols-outlined text-green-500 mr-2 text-base">check</span> Re-balance
+                        </li>
+                    </ul>
+                    <a href="/contact" class="inline-flex items-center justify-center w-full px-6 py-3 text-sm font-bold text-brand-dark border border-slate-200 rounded-full hover:bg-slate-50 transition-colors">Request Repair</a>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-3xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">Have a Fleet or Multiple Vehicles?</h2>
+                <p class="text-slate-600 mb-8 max-w-2xl mx-auto">We offer special pricing for fleet accounts and multi-vehicle appointments at the same location.</p>
+                <a href="/contact" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-brand-dark rounded-full hover:bg-brand-light hover:shadow-lg hover:shadow-accent/20 transform hover:-translate-y-1">
+                    Contact for Quote
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
