@@ -146,9 +146,9 @@ import Layout from '../layouts/BarringtonLayout.astro';
                     <p class="text-slate-300 text-sm md:text-base">Use our advanced search to find the exact match for your vehicle.</p>
                 </div>
 
-                <div class="bg-white rounded-xl md:rounded-2xl p-1 md:p-6 shadow-lg relative z-10">
+                <div class="bg-white rounded-xl md:rounded-2xl p-1 md:p-6 shadow-lg relative z-10 overflow-hidden">
                     <script is:inline src="https://app.tireconnect.ca/js/widget.js"></script>
-                    <div id="tireconnect"></div>
+                    <div id="tireconnect" class="w-full"></div>
                     <script is:inline>
                     TCWidget.init({
                        apikey: 'dc18901bfdfcb8ba529d1eeb0c15c278',
